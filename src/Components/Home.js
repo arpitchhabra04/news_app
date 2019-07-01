@@ -22,6 +22,10 @@ class Starter extends Component {
       .catch(error => {
         console.log(error);
       });
+    this.handleChannel = this.handleChannel.bind(this);
+  }
+  handleChannel(id) {
+    console.log(id);
   }
   render() {
     return (
@@ -31,8 +35,8 @@ class Starter extends Component {
         {this.state.channels.length
           ? this.state.channels.map(channel => (
               <Media key={channel.id}>
-                <Media left href="#">
-                  <Media body>
+                <Media left>
+                  <Media body onClick={() => this.handleChannel(channel.id)}>
                     <Media heading>{channel.name}</Media>
                     {channel.description}
                   </Media>
