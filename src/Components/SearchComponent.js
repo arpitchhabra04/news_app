@@ -45,7 +45,7 @@ class Search extends Component {
     return (
       <React.Fragment>
         <Form
-          className="col-12 col-md-9 mb-2 container"
+          className="col-12 col-md-9 mb-2 mt-2 container"
           onSubmit={this.handleSubmit}
         >
           <input
