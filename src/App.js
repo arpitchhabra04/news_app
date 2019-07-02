@@ -4,26 +4,29 @@ import "./App.css";
 import Starter from "./Components/Home";
 import Footer from "./Components/FooterComponent";
 import Search from "./Components/SearchComponent";
-import Check from "./Components/Check";
+import Feeds from "./Components/NewsFeeds";
 import { BrowserRouter } from "react-router-dom";
 import { Route, Switch, Redirect } from "react-router-dom";
+import Check from "./Components/Check";
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
   render() {
-    const Homepage = () => {
+    const Homepage = props => {
       return <Starter />;
     };
     return (
       <BrowserRouter>
         <div>
+          {/* <Feeds /> */}
+
           <Header />
           <Switch>
             <Route path="/home" component={Homepage} />
             <Route exact path="/search" component={Search} />
-            {/* <Route exact path="/contactus" component={Contact} /> */}
+            <Route exact path="/feeds" component={Feeds} />
             <Redirect to="/home" />
             />
           </Switch>

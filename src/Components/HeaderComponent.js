@@ -38,7 +38,7 @@ class Header extends Component {
                 width="41"
                 alt="Ristorante Con Fusion"
               /> */}
-              News World
+              NewsWorld
             </NavbarBrand>
             <Collapse isOpen={this.state.isNavOpen} navbar>
               <Nav navbar>
@@ -55,11 +55,6 @@ class Header extends Component {
                 <NavItem>
                   <NavLink className="nav-link" to="/search">
                     <span className="fa fa-search fa-lg" /> Search
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink className="nav-link" to="/contactus">
-                    <span className="fa fa-address-card fa-lg" /> Contact Us
                   </NavLink>
                 </NavItem>
               </Nav>
