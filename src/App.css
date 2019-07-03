@@ -63,6 +63,13 @@ a:hover {
 .colorStyle {
   color: #0f0f0f;
 }
+.loading {
+  text-align: center;
+  margin-top: 200px;
+  margin-left: 200px;
+  margin-right: 50%;
+  margin-bottom: 200px;
+}
 /* .BodyC {
   margin: 0;
   padding: 0;

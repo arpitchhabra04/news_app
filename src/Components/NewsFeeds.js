@@ -27,20 +27,29 @@ class Feeds extends Component {
       );
   }
   render() {
-    // console.log(this.location.query);
-    const { feeds } = this.state;
-    var feedsList = feeds.map(feed => (
-      <Card key={feed.source.id}>
-        <CardImg top width="100%" src={feed.urlToImage} alt={feed.title} />
-        <CardBody>
-          <CardTitle>{feed.title}</CardTitle>
+    if (this.state.feeds.length < 1) {
+      return (
+        <img
+          className="loading container"
+          src="
+          https://media3.giphy.com/media/jAYUbVXgESSti/200w.webp?cid=790b76115d1cd3774f4f4636490ebf4f&rid=200w.webp"
+        />
+      );
+    } else {
+      const { feeds } = this.state;
+      var feedsList = feeds.map(feed => (
+        <Card key={feed.source.id}>
+          <CardImg top width="100%" src={feed.urlToImage} alt={feed.title} />
+          <CardBody>
+            <CardTitle>{feed.title}</CardTitle>
 
-          <CardText>{feed.description}</CardText>
-        </CardBody>
-      </Card>
-    ));
+            <CardText>{feed.description}</CardText>
+          </CardBody>
+        </Card>
+      ));
 
-    return <div id="columns">{feedsList}</div>;
+      return <div id="columns">{feedsList}</div>;
+    }
   }
 }
 

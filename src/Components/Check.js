@@ -1,46 +1,45 @@
 import React, { Component } from "react";
-import axios from "axios";
-import { Card, CardImg, CardBody, CardTitle, CardText } from "reactstrap";
+import ReactDOM from "react-dom";
+import IntersectionVisible from "react-intersection-visible";
 
 class Check extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      topNews: []
-    };
-  }
-
-  componentDidMount() {
-    axios
-      .get(
-        "https://newsapi.org/v2/top-headlines?country=us&apiKey=b4095000fa984a889c24d0c02b886820"
-      )
-      .then(response =>
-        this.setState({
-          topNews: response.data.articles
-        })
-      );
-  }
-  render() {
-    // console.log(this.location.query);
-    const { topNews } = this.state;
-    var newsList = topNews.map(top => (
-      <div className="col-12 col-md-3">
-        <div id="columns">
-          <figure>
-            <img src={top.urlToImage} />
-            <figcaption>{top.title}</figcaption>
-          </figure>
-        </div>
-      </div>
-    ));
-
+  onHide(entries) {
     return (
-      <div className="container">
-        <div className="row">{newsList}</div>
+      <div>
+        <h1>this is initial</h1>
       </div>
     );
   }
-}
 
+  onShow(entries) {
+    return (
+      <div>
+        <h1>this is second</h1>
+      </div>
+    );
+  }
+
+  onIntersect(entries) {
+    return (
+      <div>
+        <h1>this is third</h1>
+      </div>
+    );
+  }
+
+  render() {
+    return (
+      <IntersectionVisible
+        onIntersect={e => this.onIntersect(e)}
+        onHide={e => this.onHide(e)}
+        onShow={e => this.onShow(e)}
+      >
+        <div>
+          blah blah blah blah blah blah blah blah blah blah blah blah blah blah
+          blah blah blah blah blah blah
+        </div>
+      </IntersectionVisible>
+    );
+  }
+}
 export default Check;

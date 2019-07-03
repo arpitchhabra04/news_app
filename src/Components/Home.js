@@ -33,41 +33,50 @@ class Starter extends Component {
   //   onClick={() => this.handleChannel(channel.i}
   // }
   render() {
-    return (
-      <div>
-        <div className="jumbotron container">
-          <h2> News Channels</h2>
-        </div>
+    if (this.state.channels.length < 1) {
+      return (
+        <img
+          className="loading container"
+          src="
+          https://media3.giphy.com/media/jAYUbVXgESSti/200w.webp?cid=790b76115d1cd3774f4f4636490ebf4f&rid=200w.webp"
+        />
+      );
+    } else {
+      return (
+        <div>
+          <div className="jumbotron container">
+            <h2> News Channels</h2>
+          </div>
 
-        <div id="columns">
-          {this.state.channels.length
-            ? this.state.channels.map(channel => (
-                <Card key={channel.id}>
-                  {/* <CardImg top width="100%" src={news.urlToImage} alt={news.title} /> */}
-                  <CardBody>
-                    <CardTitle>{channel.name}</CardTitle>
-                    <CardText>{channel.description}</CardText>
-                    <Button color="danger">
-                      <Link
-                        to={{
-                          pathname: "/feeds",
-                          state: { queryId: channel.id }
-                        }}
-                      >
-                        Top Headlines
-                      </Link>
-                    </Button>
-                  </CardBody>
-                </Card>
-              ))
-            : null}
-          {/* <IntersectionVisible onShow={()=>}>
+          <div id="columns">
+            {this.state.channels.length
+              ? this.state.channels.map(channel => (
+                  <Card key={channel.id}>
+                    {/* <CardImg top width="100%" src={news.urlToImage} alt={news.title} /> */}
+                    <CardBody>
+                      <CardTitle>{channel.name}</CardTitle>
+                      <CardText>{channel.description}</CardText>
+                      <Button color="danger">
+                        <Link
+                          to={{
+                            pathname: "/feeds",
+                            state: { queryId: channel.id }
+                          }}
+                        >
+                          Top Headlines
+                        </Link>
+                      </Button>
+                    </CardBody>
+                  </Card>
+                ))
+              : null}
+            {/* <IntersectionVisible onShow={()=>}>
                   <div></div>
                 </IntersectionVisible> */}
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
   }
 }
-
 export default Starter;

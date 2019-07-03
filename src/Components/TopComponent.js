@@ -22,26 +22,36 @@ class Feeds extends Component {
       );
   }
   render() {
-    // console.log(this.location.query);
-    const { topNews } = this.state;
-    var newsList = topNews.map(top => (
-      <Card key={top.source.id}>
-        <CardImg top width="100%" src={top.urlToImage} alt={top.title} />
-        <CardBody>
-          <CardTitle>{top.title}</CardTitle>
+    if (this.state.topNews.length < 1) {
+      return (
+        <img
+          className="loading container"
+          src="
+          https://media3.giphy.com/media/jAYUbVXgESSti/200w.webp?cid=790b76115d1cd3774f4f4636490ebf4f&rid=200w.webp"
+        />
+      );
+    } else {
+      const { topNews } = this.state;
+      var newsList = topNews.map(top => (
+        <Card key={top.source.id}>
+          <CardImg top width="100%" src={top.urlToImage} alt={top.title} />
+          <CardBody>
+            <CardTitle>{top.title}</CardTitle>
 
-          <CardText>{top.description}</CardText>
-        </CardBody>
-      </Card>
-    ));
+            <CardText>{top.description}</CardText>
+          </CardBody>
+        </Card>
+      ));
 
-    return (
-      <div>
-        <div className="container h1 Trend rounded mt-2 mb-1">Trending</div>
-        <div id="columns">{newsList}</div>
-      </div>
-    );
+      return (
+        <div>
+          <div className="container h1 Trend p-4 rounded mt-2 mb-1">
+            Trending
+          </div>
+          <div id="columns">{newsList}</div>
+        </div>
+      );
+    }
   }
 }
-
 export default Feeds;

@@ -29,34 +29,43 @@ class Search extends Component {
       );
   }
   render() {
-    const { newsSearch } = this.state;
-    var searchList = newsSearch.map(news => (
-      <Card key={news.source.id}>
-        <CardImg top width="100%" src={news.urlToImage} alt={news.title} />
-        <CardBody>
-          <CardTitle>{news.title}</CardTitle>
+    if (this.state.newsSearch.length < 1) {
+      return (
+        <img
+          className="loading container"
+          src="
+          https://media3.giphy.com/media/jAYUbVXgESSti/200w.webp?cid=790b76115d1cd3774f4f4636490ebf4f&rid=200w.webp"
+        />
+      );
+    } else {
+      const { newsSearch } = this.state;
+      var searchList = newsSearch.map(news => (
+        <Card key={news.source.id}>
+          <CardImg top width="100%" src={news.urlToImage} alt={news.title} />
+          <CardBody>
+            <CardTitle>{news.title}</CardTitle>
 
-          <CardText>{news.description}</CardText>
-        </CardBody>
-      </Card>
-    ));
-    return (
-      <React.Fragment>
-        <Form
-          className="col-12 col-md-9 mb-2 mt-2 container"
-          onSubmit={this.handleSubmit}
-        >
-          <input
-            className="col-12 form-control"
-            placeholder="Search News"
-            ref={input => (this.input = input)}
-          />
-        </Form>
+            <CardText>{news.description}</CardText>
+          </CardBody>
+        </Card>
+      ));
+      return (
+        <React.Fragment>
+          <Form
+            className="col-12 col-md-9 mb-2 mt-2 container"
+            onSubmit={this.handleSubmit}
+          >
+            <input
+              className="col-12 form-control"
+              placeholder="Search News"
+              ref={input => (this.input = input)}
+            />
+          </Form>
 
-        <div id="columns">{searchList}</div>
-      </React.Fragment>
-    );
+          <div id="columns">{searchList}</div>
+        </React.Fragment>
+      );
+    }
   }
 }
-
 export default Search;
