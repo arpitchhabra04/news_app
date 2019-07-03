@@ -29,6 +29,7 @@ class App extends Component {
             <Route exact path="/home" component={Homepage} />
             <Route exact path="/search" component={Search} />
             <Route exact path="/feeds" component={Feeds} />
+            <Route exact path="/check" component={Check} />
             <Redirect to="/topnews" />
             />
           </Switch>

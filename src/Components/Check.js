@@ -1,21 +1,26 @@
 import React, { Component } from "react";
+import waterfall from "waterfall.js/src/waterfall";
 
 class Check extends Component {
-  state = {};
+  constructor(props) {
+    super(props);
+    this.state = {};
+    this.renderName = this.renderName.bind(this);
+  }
+  renderName() {
+    waterfall(".grid");
+  }
   render() {
-    return <div>Check karo</div>;
+    return (
+      <div className="grid">
+        {this.renderName}
+        <div className="item">arpit</div>
+        <div className="item">arpit</div>
+        <div className="item">arpit</div>
+        <div className="item">arpit</div>
+      </div>
+    );
   }
 }
-{
-  /* <div className="col-12 col-md-3 m-1">
-          <Card key={top.source.id}>
-            <CardImg top width="100%" src={top.urlToImage} alt={top.title} />
-            <CardBody>
-              <CardTitle>{top.title}</CardTitle>
 
-              <CardText>{top.description}</CardText>
-            </CardBody>
-          </Card>
-        </div> */
-}
 export default Check;
