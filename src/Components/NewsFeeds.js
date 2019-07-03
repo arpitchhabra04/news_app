@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import "./Check.css";
 import { Card, CardImg, CardBody, CardTitle, CardText } from "reactstrap";
 
 class Feeds extends Component {
@@ -29,25 +30,17 @@ class Feeds extends Component {
     // console.log(this.location.query);
     const { feeds } = this.state;
     var feedsList = feeds.map(feed => (
-      <div className="col-12 col-md-3 m-1">
-        <Card key={feed.source.id}>
-          <CardImg top width="100%" src={feed.urlToImage} alt={feed.title} />
-          <CardBody>
-            <CardTitle>{feed.title}</CardTitle>
+      <Card key={feed.source.id}>
+        <CardImg top width="100%" src={feed.urlToImage} alt={feed.title} />
+        <CardBody>
+          <CardTitle>{feed.title}</CardTitle>
 
-            <CardText>{feed.description}</CardText>
-          </CardBody>
-        </Card>
-      </div>
+          <CardText>{feed.description}</CardText>
+        </CardBody>
+      </Card>
     ));
 
-    return (
-      <div className="container">
-        {/* <h1>{this.state.queryI}</h1> */}
-        {/* <h1>{this.props.location}</h1> */}
-        <div className="row">{feedsList}</div>
-      </div>
-    );
+    return <div id="columns">{feedsList}</div>;
   }
 }
 

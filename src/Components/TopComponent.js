@@ -25,21 +25,20 @@ class Feeds extends Component {
     // console.log(this.location.query);
     const { topNews } = this.state;
     var newsList = topNews.map(top => (
-      <div className="col-12 col-md-3 m-1">
-        <Card key={top.source.id}>
-          <CardImg top width="100%" src={top.urlToImage} alt={top.title} />
-          <CardBody>
-            <CardTitle>{top.title}</CardTitle>
+      <Card key={top.source.id}>
+        <CardImg top width="100%" src={top.urlToImage} alt={top.title} />
+        <CardBody>
+          <CardTitle>{top.title}</CardTitle>
 
-            <CardText>{top.description}</CardText>
-          </CardBody>
-        </Card>
-      </div>
+          <CardText>{top.description}</CardText>
+        </CardBody>
+      </Card>
     ));
 
     return (
-      <div className="container">
-        <div className="row">{newsList}</div>
+      <div>
+        <div className="container h1 Trend rounded mt-2 mb-1">Trending</div>
+        <div id="columns">{newsList}</div>
       </div>
     );
   }

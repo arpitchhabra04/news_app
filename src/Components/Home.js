@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Card, CardBody, CardTitle } from "reactstrap";
+import { Card, CardBody, CardTitle, CardText } from "reactstrap";
 // import Feeds from "./NewsFeeds";
 import { Button } from "reactstrap";
 import { Link } from "react-router-dom";
@@ -39,35 +39,31 @@ class Starter extends Component {
           <h2> News Channels</h2>
         </div>
 
-        <div className="container">
-          <div className="row">
-            {this.state.channels.length
-              ? this.state.channels.map(channel => (
-                  <div className="col-12 col-md-3 m-1">
-                    <Card key={channel.id}>
-                      {/* <CardImg top width="100%" src={news.urlToImage} alt={news.title} /> */}
-                      <CardBody>
-                        <CardTitle>{channel.name}</CardTitle>
-
-                        <Button color="danger">
-                          <Link
-                            to={{
-                              pathname: "/feeds",
-                              state: { queryId: channel.id }
-                            }}
-                          >
-                            Top Headlines
-                          </Link>
-                        </Button>
-                      </CardBody>
-                    </Card>
-                  </div>
-                ))
-              : null}
-            {/* <IntersectionVisible onShow={()=>}>
+        <div id="columns">
+          {this.state.channels.length
+            ? this.state.channels.map(channel => (
+                <Card key={channel.id}>
+                  {/* <CardImg top width="100%" src={news.urlToImage} alt={news.title} /> */}
+                  <CardBody>
+                    <CardTitle>{channel.name}</CardTitle>
+                    <CardText>{channel.description}</CardText>
+                    <Button color="danger">
+                      <Link
+                        to={{
+                          pathname: "/feeds",
+                          state: { queryId: channel.id }
+                        }}
+                      >
+                        Top Headlines
+                      </Link>
+                    </Button>
+                  </CardBody>
+                </Card>
+              ))
+            : null}
+          {/* <IntersectionVisible onShow={()=>}>
                   <div></div>
                 </IntersectionVisible> */}
-          </div>
         </div>
       </div>
     );

@@ -15,10 +15,7 @@ function Footer(props) {
                 <Link to="/search">Search</Link>
               </li>
               <li>
-                <Link to="/home">About</Link>
-              </li>
-              <li>
-                <Link to="contactus.html">Contact</Link>
+                <Link to="/about">About</Link>
               </li>
             </ul>
           </div>

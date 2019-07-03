@@ -31,16 +31,14 @@ class Search extends Component {
   render() {
     const { newsSearch } = this.state;
     var searchList = newsSearch.map(news => (
-      <div className="col-12 col-md-3 m-1">
-        <Card key={news.source.id}>
-          <CardImg top width="100%" src={news.urlToImage} alt={news.title} />
-          <CardBody>
-            <CardTitle>{news.title}</CardTitle>
+      <Card key={news.source.id}>
+        <CardImg top width="100%" src={news.urlToImage} alt={news.title} />
+        <CardBody>
+          <CardTitle>{news.title}</CardTitle>
 
-            <CardText>{news.description}</CardText>
-          </CardBody>
-        </Card>
-      </div>
+          <CardText>{news.description}</CardText>
+        </CardBody>
+      </Card>
     ));
     return (
       <React.Fragment>
@@ -54,9 +52,8 @@ class Search extends Component {
             ref={input => (this.input = input)}
           />
         </Form>
-        <div className="container">
-          <div className="row">{searchList}</div>
-        </div>
+
+        <div id="columns">{searchList}</div>
       </React.Fragment>
     );
   }
