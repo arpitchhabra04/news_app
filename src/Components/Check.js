@@ -5,15 +5,17 @@ class Check extends Component {
   constructor(props) {
     super(props);
     this.state = {};
-    this.renderName = this.renderName.bind(this);
+    // this.renderName = this.renderName.bind(this);
   }
-  renderName() {
-    waterfall(".grid");
+
+  componentDidMount() {
+    var grid = document.querySelector("my-grid");
+    waterfall(grid);
   }
+
   render() {
     return (
-      <div className="grid">
-        {this.renderName}
+      <div className="my-grid">
         <div className="item">arpit</div>
         <div className="item">arpit</div>
         <div className="item">arpit</div>
