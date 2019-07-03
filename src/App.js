@@ -8,6 +8,7 @@ import Feeds from "./Components/NewsFeeds";
 import { BrowserRouter } from "react-router-dom";
 import { Route, Switch, Redirect } from "react-router-dom";
 import Check from "./Components/Check";
+import TopNews from "./Components/TopComponent";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -24,10 +25,11 @@ class App extends Component {
 
           <Header />
           <Switch>
-            <Route path="/home" component={Homepage} />
+            <Route path="/topnews" component={TopNews} />
+            <Route exact path="/home" component={Homepage} />
             <Route exact path="/search" component={Search} />
             <Route exact path="/feeds" component={Feeds} />
-            <Redirect to="/home" />
+            <Redirect to="/topnews" />
             />
           </Switch>
           <Footer />

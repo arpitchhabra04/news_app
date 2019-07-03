@@ -37,18 +37,23 @@ a {
 a:hover {
   color: #00f;
 }
-/* .body {
+
+.NavStyle {
+  position: absolute;
+  right: 0;
+}
+/* .BodyC {
   margin: 0;
   padding: 0;
   background: #333;
 }
-.con1 {
+.Cont {
   width: 1200px;
   margin: 20px auto;
   columns: 4;
   column-gap: 40px;
 }
-.con1 .box {
+.Cont .box {
   width: 100%;
   margin: 0 0 20px;
   padding: 10px;

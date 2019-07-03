@@ -41,20 +41,25 @@ class Header extends Component {
               NewsWorld
             </NavbarBrand>
             <Collapse isOpen={this.state.isNavOpen} navbar>
-              <Nav navbar>
+              <Nav navbar className="NavStyle container">
                 <NavItem>
                   <NavLink className="nav-link" to="/home">
                     <span className="fa fa-home fa-lg" /> Home
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink className="nav-link" to="/aboutus">
-                    <span className="fa fa-info fa-lg" /> About Us
+                  <NavLink className="nav-link" to="/topnews">
+                    <span className="fa fa-angle-double-up fa-lg" /> Trending
                   </NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink className="nav-link" to="/search">
                     <span className="fa fa-search fa-lg" /> Search
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink className="nav-link" to="/aboutus">
+                    <span className="fa fa-info fa-lg" /> About Us
                   </NavLink>
                 </NavItem>
               </Nav>
